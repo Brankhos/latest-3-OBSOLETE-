@@ -1,0 +1,7 @@
+pip
+wheel
+setuptools
+https://download.lfd.uci.edu/pythonlibs/w6tyco5e/numpy-1.21.4+mkl-cp310-cp310-win_amd64.whl
+aiohttp
+requests
+mysql-connector-python

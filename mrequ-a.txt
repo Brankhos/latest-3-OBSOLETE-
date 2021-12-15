@@ -1,0 +1,7 @@
+pip
+wheel
+setuptools
+numpy
+aiohttp
+requests
+mysql-connector-python
