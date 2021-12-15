@@ -15,6 +15,7 @@ import aiohttp
 import sys
 import atexit
 import requests
+import json
 
 if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.startswith('win'):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -213,6 +214,10 @@ def main():
             for i in task:
                 i.join()
 
+            local_data = json.load("version.txt")
+            git_data = requests.get("https://raw.githubusercontent.com/Brankhos/latest-3/main/version.txt?token=ASH3BS2YCZP4F3ZAM2EBQYLBXHLHK").json()
+            if local_data["Version"] < git_data["Version"]:
+                sys.exit()
             server_time = server_datas.server_time
             # wait_time = 61 - (int(server_time / 1000) % 60)
             wait_time = 20

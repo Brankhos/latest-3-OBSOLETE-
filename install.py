@@ -1,5 +1,5 @@
 import os, platform, subprocess, re, sys
-
+import main
 def get_processor_name():
     if platform.system() == "Windows":
         return platform.processor()
@@ -34,11 +34,4 @@ else:
     for line in Lines:
         install("{}".format(line.strip()))
 
-sayac = 0
-while True:
-    sayac += 1
-    print(sayac)
-    if sayac == 3:
-        break
-        
-sys.exit()
+main.main()
