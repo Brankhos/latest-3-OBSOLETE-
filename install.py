@@ -32,7 +32,3 @@ else:
     Lines = file1.readlines()
     for line in Lines:
         install("{}".format(line.strip()))
-
-
-import main
-nain.main()
