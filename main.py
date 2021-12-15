@@ -215,7 +215,8 @@ def main():
             for i in task:
                 i.join()
 
-            f = open(os.path.abspath(os.getcwd())+"/version.txt", "r")
+            f = open(os.path.dirname(os.path.abspath(__file__))
++"/version.txt", "r")
             local_data = json.load(f)
             git_data = requests.get(
                 "https://Brankhos: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@raw.githubusercontent.com/Brankhos/latest-3/main/version.txt").json()
