@@ -16,6 +16,7 @@ import sys
 import atexit
 import requests
 import json
+import os
 
 if sys.version_info[0] == 3 and sys.version_info[1] >= 8 and sys.platform.startswith('win'):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
@@ -214,7 +215,7 @@ def main():
             for i in task:
                 i.join()
 
-            f = open("version.txt", "r")
+            f = open(os.path.abspath(os.getcwd())+"/version.txt", "r")
             local_data = json.load(f)
             git_data = requests.get(
                 "https://Brankhos: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@raw.githubusercontent.com/Brankhos/latest-3/main/version.txt").json()
@@ -223,7 +224,7 @@ def main():
                 sys.exit()
 
 
-                
+
             server_time = server_datas.server_time
             # wait_time = 61 - (int(server_time / 1000) % 60)
             wait_time = 20
