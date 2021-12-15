@@ -214,12 +214,16 @@ def main():
             for i in task:
                 i.join()
 
-            local_data = json.load("version.txt")
+            f = open("version.txt", "r")
+            local_data = json.load(f)
             git_data = requests.get(
                 "https://Brankhos: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@raw.githubusercontent.com/Brankhos/latest-3/main/version.txt").json()
             if local_data["Version"] < git_data["Version"]:
                 print("Günvelleme uygulanıyor")
                 sys.exit()
+
+
+                
             server_time = server_datas.server_time
             # wait_time = 61 - (int(server_time / 1000) % 60)
             wait_time = 20
