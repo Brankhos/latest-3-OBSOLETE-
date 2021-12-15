@@ -1,5 +1,4 @@
 import os, platform, subprocess, re, sys
-import main
 def get_processor_name():
     if platform.system() == "Windows":
         return platform.processor()
@@ -33,3 +32,7 @@ else:
     Lines = file1.readlines()
     for line in Lines:
         install("{}".format(line.strip()))
+
+
+import main
+nain.main()
